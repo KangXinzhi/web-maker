@@ -8,8 +8,8 @@
 }
 
 .content{
-  width: 375px;
-  max-width: 540px;
+  width: 60%;
+  /* max-width: 100%; */
   margin: 0 auto;
   min-height: 603px;
   background-color: #f7f8fa;

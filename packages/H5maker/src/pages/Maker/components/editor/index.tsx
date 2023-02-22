@@ -1,7 +1,7 @@
 import { Button, Input } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import classNames from 'classnames';
-import React from 'react'
+import React, { useState } from 'react'
 import { IComponentItemProps } from '../comList/schema';
 import './index.less'
 
@@ -13,9 +13,10 @@ export interface IProps {
 
 const index = (props: IProps) => {
   const { cards, setCards, compActiveIndex } = props
-
+  const [active, setActive] = useState(true)
+  
   return (
-    <div className="editor">
+    <div className={classNames("editor", { "editor-btn-active": !active })} >
       {compActiveIndex != null && cards?.[compActiveIndex] && (
         <>
           <h2>{cards[compActiveIndex].text}</h2>
@@ -81,6 +82,10 @@ const index = (props: IProps) => {
           ))}
         </>
       )}
+      <span
+        className={"editor-btn"}
+        onClick={() => { setActive(!active) }}
+      />
     </div>
   )
 }

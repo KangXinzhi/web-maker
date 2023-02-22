@@ -1,9 +1,6 @@
+// 预览功能页面
+
 import React, { useEffect, useState } from "react";
-import { DndProvider } from "react-dnd";
-import { useUpdateEffect } from "ahooks";
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import { Card } from "../../components/card";
-import { PreviewHeader } from "../../components/previewHeader";
 import { PreviewFooter } from "../../components/previewFooter";
 
 import "./index.css";
@@ -26,8 +23,8 @@ const View = () => {
 
   return (
     <div className='view'>
-      <div className="content">
-        <PreviewHeader />
+      <div className="content-preview">
+        {/* <PreviewHeader /> */}
         <div className="main">
           {cards.map((card, index) => (
             <ViewCard

@@ -27,11 +27,6 @@ const index = (props: ICardProps) => {
   console.log('scrollY', scrollY)
   return (
     <div className='preview-wrap'>
-      <div className='tool-bar'>
-        <div className='btn'>页面设置</div>
-        <div className='btn'>组件管理</div>
-        <div className='btn'>历史记录</div>
-      </div>
       <iframe
         className='preview-iframe'
         src="http://localhost:3007/#/preview"

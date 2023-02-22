@@ -41,7 +41,6 @@ const PreView = () => {
         <PreviewHeader />
         <div className="main">
           <DndProvider backend={HTML5Backend}>
-
             {cards.map((card, index) => (
               <Card
                 key={`card-${index}`}
