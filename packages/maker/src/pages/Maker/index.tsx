@@ -55,8 +55,6 @@ const Maker: React.FC = () => {
     }
   }, [shopSchema])
 
-  console.log('compActiveIndex', compActiveIndex)
-
   return (
     <div className='container'>
       <DndProvider backend={HTML5Backend}>

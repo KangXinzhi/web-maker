@@ -30,7 +30,6 @@ const PreView = () => {
 
     window.addEventListener('scroll', debounce(() => {
       const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-      console.log('scrollY2', scrollY)
       window.parent.postMessage({ scrollY }, "*");
     }, 500))
   }, [])

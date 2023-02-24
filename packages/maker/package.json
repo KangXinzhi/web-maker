@@ -8,7 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "^4.20.7",
+    "@types/lodash": "^4.14.191",
+    "antd": "^5.2.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.5",
     "dexie": "^3.2.2",
@@ -16,6 +17,7 @@
     "immutability-helper": "^3.1.1",
     "less": "^4.1.2",
     "less-loader": "^11.0.0",
+    "loadsh": "^0.0.4",
     "react": "^18.0.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",

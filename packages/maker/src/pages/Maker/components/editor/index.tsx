@@ -1,17 +1,19 @@
 import { Button, Input } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
 import classNames from 'classnames';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { IComponentItemProps } from '../comList/schema';
-import './index.less'
 
-export interface IProps {
+import Carousel from './components/carousel';
+import './index.less';
+
+export interface IEditorProps {
   cards: [] | IComponentItemProps[]
   setCards: React.Dispatch<React.SetStateAction<[] | IComponentItemProps[]>>
   compActiveIndex: number | null
 }
 
-const index = (props: IProps) => {
+const index = (props: IEditorProps) => {
   const { cards, setCards, compActiveIndex } = props
   const [active, setActive] = useState(true)
   
@@ -78,6 +80,9 @@ const index = (props: IProps) => {
                   }
                 </div>
               </div>
+            )||
+            item.type === 'carousel-picture' && (
+              <Carousel cards={cards} setCards={setCards} compActiveIndex={compActiveIndex} index={index}/>
             )
           ))}
         </>

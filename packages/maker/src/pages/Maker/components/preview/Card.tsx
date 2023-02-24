@@ -35,7 +35,6 @@ export const Card: FC<CardProps> = ({ setCompActiveIndex, item, IDkey, cards, in
       }
     },
     hover(item: DragItem, monitor) {
-      console.log('cards', cards)
 
       if (!ref.current) {
         return
@@ -69,7 +68,6 @@ export const Card: FC<CardProps> = ({ setCompActiveIndex, item, IDkey, cards, in
           }),
         )
       } else {
-        console.log('item.comp', item.comp)
         setCards((prevCards: IComponentItemProps[]) =>
           update(prevCards, {
             $splice: [
@@ -125,7 +123,7 @@ export const Card: FC<CardProps> = ({ setCompActiveIndex, item, IDkey, cards, in
       })}
       data-handler-id={handlerId}
     >
-      {item.name === 'titleText' && item?.config.map((item2, index2) => {
+    {item.name === 'titleText' && item?.config.map((item2, index2) => {
         return (
           <div
             key={`titleText-${index2}`}

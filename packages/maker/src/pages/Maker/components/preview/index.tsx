@@ -24,7 +24,6 @@ const index = (props: ICardProps) => {
   //   document.querySelector('.preview').style.top = `${-scrollY + 56 + 16}px`;
   // }, [scrollY])
 
-  console.log('scrollY', scrollY)
   return (
     <div className='preview-wrap'>
       <iframe

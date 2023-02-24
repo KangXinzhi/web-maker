@@ -1,11 +1,24 @@
+// iframe 页面
+
 import type { Identifier, XYCoord } from 'dnd-core'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper/core';
+
+import { useState } from 'react';
 import { FC, useMemo } from 'react'
 import { useRef } from 'react'
 import { useDrag, useDrop } from 'react-dnd'
 import update from 'immutability-helper'
 import classnames from 'classnames'
 import './index.less'
+import 'swiper/css';
 
+SwiperCore.use([Autoplay, Pagination, Navigation]);
+
+export interface ICarouselPicture {
+  url: string
+  link: string
+}
 export interface IComponentItemProps {
   text: string  // 组件区中组件的名称
   name: string  // 组件区中组件的的key
@@ -14,7 +27,8 @@ export interface IComponentItemProps {
     label: string   // 配置区中title名称
     type: string  // 配置区组件类型
     format: string
-    value?: string
+    value?: string 
+    item?: ICarouselPicture[] //轮播图配置
     config?: {  // 默认配置项
       icon: string
       style: React.CSSProperties
@@ -157,6 +171,38 @@ export const Card: FC<CardProps> = ({ item, IDkey, cards, index, setCards, compA
           >
             {item2.type === 'input' && (<span className='title-text' style={titleTextStyle['title-size']}>{item2.value}</span>)}
             {item2.type === 'textarea' && (<span className='content-text' style={titleTextStyle['content-size']}>{item2.value}</span>)}
+          </div>
+        )
+      })}
+      {item.name === 'carousel' && item?.config.map((item2, index2) => {
+        return (
+          <div
+            key={`titleText-${index2}`}
+            className='carousel-container'
+          >
+
+            {item2.type === 'carousel-picture' && (
+              <Swiper
+                spaceBetween={0}
+                centeredSlides={true}
+                slidesPerView='auto'
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                loop
+                pagination={{
+                  "clickable": true
+                }}
+                // onSlideChange={() => console.log('slide change')}
+                // onSwiper={(swiper) => console.log(swiper)}
+              >
+                {item2.item?.map(item3 => (
+                  <SwiperSlide><img src={item3.url} /></SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+
           </div>
         )
       })}

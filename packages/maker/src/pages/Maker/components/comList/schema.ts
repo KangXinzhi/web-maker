@@ -5,8 +5,9 @@ export interface IComponentItemProps {
   config: {
     label: string   // 配置区中title名称
     type: string  // 配置区组件类型
-    format: string
-    value?: string
+    format: string // 自定义style
+    value?: string 
+    item?: ICarouselPicture[]
     config?: {  // 默认配置项
       icon: string
       style: React.CSSProperties
@@ -18,6 +19,10 @@ export interface IComponentItemProps {
       tooltip: string,
     }[]
   }[]
+}
+export interface ICarouselPicture{
+  url: string
+  link: string
 }
 
 export const componentList: IComponentItemProps[] = [
@@ -135,6 +140,22 @@ export const componentList: IComponentItemProps[] = [
             tooltip: '小(12)号',
           }
         ]
+      },
+    ],
+  },
+  {
+    text: '轮播图',
+    name: "carousel",
+    icon: 'https://img01.yzcdn.cn/upload_files/2022/06/17/Fgyd5N9R29QGAJXE7daGUWFpdv5z.png',
+    config: [
+      {
+        label: "内容设置",
+        type: "carousel-picture",
+        format: "content-size",
+        item: [{
+          url: 'https://img01.yzcdn.cn/public_files/2019/03/05/2b60ed750a93a1bd6e17fc354c86fa78.png!large.webp',
+          link: '',
+        }]
       },
     ],
   }
